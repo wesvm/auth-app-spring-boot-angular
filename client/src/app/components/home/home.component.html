@@ -1,0 +1,11 @@
+<app-navbar (logout)="logout()"></app-navbar>
+
+<div class="text-center mt-10 mb-10">
+    <div class="flex justify-center mt-5">
+        <app-user-edit-info [user]="user" (update)="openModal()" (activeTfa)="openMfaModal()" />
+    </div>
+</div>
+
+<div class="flex flex-wrap justify-center">
+    <app-user-card *ngFor="let user of users" [user]="user" />
+</div>

@@ -1,0 +1,14 @@
+<div class="max-w-xs w-72 bg-white shadow-lg rounded-lg overflow-hidden m-4">
+    <img class="h-72 w-full object-cover" src="{{ user.profileImage }}" alt="User Image">
+    <div class="p-4">
+        <h2 class="font-semibold text-xl text-gray-800">Hi {{ user.name }}!</h2>
+        <p class="text-gray-600">{{ user.email }}</p>
+        <p class="text-gray-600">mfa status: {{ user.mfaEnabled }}</p>
+    </div>
+    <div class="flex justify-center space-x-4 pb-4">
+        <button label="Update" (click)="onUpdate()"
+            class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">Edit profile image</button>
+        <button label="Logout" (click)="onActiveTfa()"
+            class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md">mfa</button>
+    </div>
+</div>

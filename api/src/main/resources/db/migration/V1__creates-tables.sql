@@ -1,0 +1,19 @@
+CREATE TABLE users (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(20) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE tokens(
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    token VARCHAR(255) UNIQUE NOT NULL,
+    token_type VARCHAR(20) NOT NULL,
+    revoked BOOLEAN NOT NULL,
+    expired BOOLEAN NOT NULL,
+    user_id BIGINT NOT NULL,
+    PRIMARY KEY (id),
+    CONSTRAINT fk_tokens_user FOREIGN KEY (user_id) REFERENCES users(id)
+);
